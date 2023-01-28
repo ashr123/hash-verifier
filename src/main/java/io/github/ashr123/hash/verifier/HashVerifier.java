@@ -84,7 +84,7 @@ public class HashVerifier implements CommandLine.IVersionProvider
 	@CommandLine.Command(mixinStandardHelpOptions = true,
 			versionProvider = HashVerifier.class,
 			description = "Verify file's hash with given hash.")
-	public static void verifyHash(
+	public static void verifyHashOfFile(
 			@CommandLine.Parameters(paramLabel = "algorithm",
 					converter = MessageDigestConverter.class,
 					completionCandidates = AlgorithmsName.class,
