@@ -20,6 +20,7 @@ import java.util.stream.Stream;
 @CommandLine.Command(name = "java -jar hash-verifier.jar",
 		mixinStandardHelpOptions = true,
 		versionProvider = HashVerifier.class,
+		showDefaultValues = true,
 		description = "Verify or generate file's hash with given hash.")
 public class HashVerifier implements CommandLine.IVersionProvider
 {
@@ -54,7 +55,8 @@ public class HashVerifier implements CommandLine.IVersionProvider
 		return messageDigest.digest();
 	}
 
-	@CommandLine.Command(mixinStandardHelpOptions = true,
+	@CommandLine.Command(name = "generate-hash-from-file",
+			mixinStandardHelpOptions = true,
 			versionProvider = HashVerifier.class,
 			showDefaultValues = true,
 			description = "Generates hash from file according to given hash algorithm.")
@@ -81,8 +83,10 @@ public class HashVerifier implements CommandLine.IVersionProvider
 		}
 	}
 
-	@CommandLine.Command(mixinStandardHelpOptions = true,
+	@CommandLine.Command(name = "verify-hash-of-file",
+			mixinStandardHelpOptions = true,
 			versionProvider = HashVerifier.class,
+			showDefaultValues = true,
 			description = "Verify file's hash with given hash.")
 	public static void verifyHashOfFile(
 			@CommandLine.Parameters(paramLabel = "algorithm",
