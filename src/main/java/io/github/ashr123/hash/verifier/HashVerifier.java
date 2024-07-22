@@ -14,7 +14,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.Provider;
 import java.security.Security;
 import java.util.Collection;
-import java.util.EnumSet;
+import java.util.Collections;
 import java.util.HexFormat;
 import java.util.Iterator;
 import java.util.stream.Stream;
@@ -33,7 +33,7 @@ public class HashVerifier implements CommandLine.IVersionProvider {
 	}
 
 	public static byte[] digest(Path path, MessageDigest messageDigest) throws IOException {
-		try (FileChannel fileChannel = FileChannel.open(path, EnumSet.of(StandardOpenOption.READ))) {
+		try (FileChannel fileChannel = FileChannel.open(path, Collections.singleton(StandardOpenOption.READ))) {
 			final long size = fileChannel.size();
 			long position = 0;
 
